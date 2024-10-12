@@ -1,5 +1,4 @@
 FROM alpine:3.20 AS clone
-
 RUN apk --no-cache add git
 RUN git clone https://github.com/cuinjune/chat-room.git
 RUN mkdir -p /chat-room/db && echo '{"numVisitors": 0,"data": []}' > /chat-room/db/data.json
