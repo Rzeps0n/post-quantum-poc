@@ -12,7 +12,8 @@ LABEL maintainer=adamrzepka@student.agh.edu.pl
 LABEL org.opencontainers.image.source=https://github.com/xtaci/kcptun
 RUN apk add --no-cache iptables
 COPY --from=build /server /kcptun/
-ENV TUNNELED_IP=0.0.0.0 TUNNELED_PORT=3000
+ENV TUNNELED_IP=0.0.0.0 TUNNELED_PORT=3000 LISTEN_PORT=4000
+ENV PARAMS="-mode fast3 -nocomp -crypt Salsa20 -QPP -QPPCount 101 -smuxver 2"
 WORKDIR /kcptun
-CMD ["sh", "-c", "./server -t \"$TUNNELED_IP:$TUNNELED_PORT\" -l ':4000' -mode fast3 -nocomp -sockbuf 16777217 -dscp 46 -QPP -QPPCount 61"]
+CMD ["sh", "-c", "./server -t \"$TUNNELED_IP:$TUNNELED_PORT\" -l ':$LISTEN_PORT' $PARAMS"]
 EXPOSE 4000

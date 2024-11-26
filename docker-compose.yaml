@@ -1,26 +1,43 @@
 services:
-  kcptun:
-    image: rzepson/kcptun:latest
-    container_name: kcptun
-    #    sysctls:
-      #      net.core.rmem_max: 26214400
-      #      net.core.rmem_default: 26214400
-      #      net.core.wmem_max: 26214400
-      #      net.core.wmem_default: 26214400
-      #      net.core.netdev_max_backlog: 2048
+  #  kcptun-client:
+  #    image: rzepson/kcptun-client:1.0
+  #    container_name: kcptun-client
+  #    #sysctls:
+  #    #    net.core.rmem_max: 26214400
+  #    #    net.core.rmem_default: 26214400
+  #    #    net.core.wmem_max: 26214400
+  #    #    net.core.wmem_default: 26214400
+  #    #    net.core.netdev_max_backlog: 2048
+  #    ports:
+  #      - "3000:3000/udp"
+  #    restart: unless-stopped
+  #    environment:
+  #      - TUNNELED_IP=localhost
+  #      - TUNNELED_PORT=4000
+
+  kcptun-server:
+    image: rzepson/kcptun-server:1.0
+    container_name: kcptun-server
+    #sysctls:
+    #  net.core.rmem_max: 26214400
+    #  net.core.rmem_default: 26214400
+    #  net.core.wmem_max: 26214400
+    #  net.core.wmem_default: 26214400
+    #  net.core.netdev_max_backlog: 2048
     ports:
       - "0.0.0.0:4000:4000/udp"
     restart: unless-stopped
     environment:
       - TUNNELED_IP=0.0.0.0
       - TUNNELED_PORT=3000
+
   chat-room:
     image: rzepson/chat-room:latest
     container_name: chat-room
     restart: unless-stopped
-    network_mode: service:kcptun
+    network_mode: service:kcptun-server
     depends_on:
-      - kcptun
+      - kcptun-server
     environment:
       - PORT=3000
     volumes:
