@@ -101,7 +101,7 @@ To connect to the KCPTun server from a client machine, follow these steps:
 
     ```bash
     docker run -d --name kcptun-client --restart unless-stopped -p 3000:3000/udp -e TUNNELED_IP=localhost -e TUNNELED_PORT=4000 rzepson/kcptun-client:1.0
-  ```
+    ```
 
    Once the client is running, it will establish a secure tunnel to the KCPTun server on the specified endpoint. You can now interact with the Chat-Room service securely via `localhost:3000`.
 
