@@ -1,5 +1,9 @@
 # Post-Quantum Proof of Concept (PoC)
 
+## Note: This encryption isn't compliant with [latest NIST standards regarding Post-Quantum Cryptography](https://csrc.nist.gov/news/2024/postquantum-cryptography-fips-approved)
+
+---
+
 This student project demonstrates the application of quantum-safe tunnels using a combination of [KCPTun](https://github.com/xtaci/kcptun) and a simple chat application. The goal is to showcase how modern cryptographic techniques can establish secure communication channels that are resistant to potential future attacks by quantum computers.
 
 ---
