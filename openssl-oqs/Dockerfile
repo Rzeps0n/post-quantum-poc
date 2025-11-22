@@ -1,9 +1,25 @@
 FROM debian:stable-slim AS builder
 
-RUN apt update && apt install -y astyle cmake gcc ninja-build libssl-dev python3-pytest python3-pytest-xdist unzip xsltproc doxygen graphviz python3-yaml valgrind git
+RUN apt update && \
+    apt install -y \
+        astyle \
+        cmake \
+        gcc \
+        ninja-build \
+        libssl-dev \
+        python3-pytest \
+        python3-pytest-xdist \
+        unzip \
+        xsltproc \
+        doxygen \
+        graphviz \
+        python3-yaml \
+        valgrind \
+        git
 
 WORKDIR /opt
-RUN git clone -b main https://github.com/open-quantum-safe/oqs-provider.git
+RUN git clone -b main \
+    https://github.com/open-quantum-safe/oqs-provider.git
 
 WORKDIR oqs-provider
 RUN bash scripts/fullbuild.sh
@@ -20,5 +36,7 @@ ENV LD_LIBRARY_PATH=/usr/local/lib
 ENV OPENSSL_APP=/usr/bin/openssl
 ENV OPENSSL_CONF=/etc/ssl/openssl-ca.cnf
 ENV OPENSSL_MODULES=/usr/lib/ssl/
+
+WORKDIR /home
 
 ENTRYPOINT ["openssl"]
