@@ -1,0 +1,22 @@
+<IfModule mod_ssl.c>
+    <VirtualHost _default_:443>
+        ServerAdmin webmaster@localhost
+        ServerName localhost
+
+        DocumentRoot /var/www/html
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        SSLEngine on
+        SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
+        SSLCertificateFile /etc/ssl/apache2/server.crt
+        SSLCertificateKeyFile /etc/ssl/apache2/server.key
+        SSLOpenSSLConfCmd Curves X25519MLKEM768:X25519:prime256v1
+        <Directory /var/www/html>
+            Options Indexes FollowSymLinks
+            AllowOverride All
+            Require all granted
+        </Directory>
+    </VirtualHost>
+</IfModule>
