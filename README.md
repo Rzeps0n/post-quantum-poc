@@ -2,7 +2,7 @@
 
 ## Dockerized oqs-openssl provider
 
-### How to run as an openssl command (example):
+### Run as an openssl command (example):
 ```bash
 docker run --rm -itv ./:/home rzepson/oqs-openssl list -kem-algorithms
 ```
@@ -11,13 +11,12 @@ docker run --rm -itv ./:/home rzepson/oqs-openssl list -kem-algorithms
 
 > You may encounter werid issues wehn using platforms other than amd64. adding --platform=linux/amd64 is recommended.
 
-### How to run in debug mode:
+### Run in debug mode:
 ```bash
 docker run --entrypoint "" --rm -itv ./:/home rzepson/oqs-openssl bash
 ```
 
-
-How to build:
+### Build:
 ```bash
 cd oqs-openssl;
 docker buildx build \
