@@ -19,6 +19,7 @@ docker run --entrypoint "" --rm -itv ./:/home rzepson/oqs-openssl bash
 
 How to build:
 ```bash
+cd oqs-openssl;
 docker buildx build \
 --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
 --build-arg=GIT_COMMIT=$(git rev-parse --short HEAD) \
