@@ -13,14 +13,13 @@ RUN apt update && apt install -y apache2 && rm -rf /var/cache/apt/archives /var/
 
 RUN mkdir -p /var/run/apache2 /etc/ssl/apache2 && . /etc/apache2/envvars
 
-#RUN echo -e "LoadModule ssl_module modules/mod_ssl.so\nInclude /etc/apache2/sites-available/default-ssl.conf\nLoadModule socache_shmcb_module modules/mod_socache_shmcb.so" >> /etc/apache2/apache2.conf
+RUN openssl ecparam -name prime256v1 -genkey -noout \
+    -out /etc/ssl/apache2/server.key && \
+    openssl req -x509 -new -key /etc/ssl/apache2/server.key \
+    -out /etc/ssl/apache2/server.crt \
+    -days 365 \
+    -subj "/C=PL/ST=Lesser Poland/L=Cracow/O=AGH University of Cracow/CN=localhost"
 
-RUN openssl req -x509 -nodes -days 365 -newkey rsa \
--keyout /etc/ssl/apache2/server.key \
--out /etc/ssl/apache2/server.crt \
--subj "/C=PL/ST=Lesser Poland/L=Cracow/O=AGH University of Cracow/CN=localhost"
-
-#COPY default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 COPY default-ssl.conf /etc/apache2/mods-available/ssl.conf
 
 RUN a2enmod ssl socache_shmcb && a2ensite default-ssl && apache2ctl configtest
