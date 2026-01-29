@@ -1,0 +1,40 @@
+non-pqc
+57327 connections in 15.04s; 3811.64 connections/user sec, bytes read 0
+57327 connections in 31 real seconds, 0 bytes read per connection
+59319 connections in 15.52s; 3822.10 connections/user sec, bytes read 0
+59319 connections in 31 real seconds, 0 bytes read per connection
+55465 connections in 15.18s; 3653.82 connections/user sec, bytes read 0
+55465 connections in 31 real seconds, 0 bytes read per connection
+55060 connections in 15.04s; 3660.90 connections/user sec, bytes read 0
+55060 connections in 31 real seconds, 0 bytes read per connection
+56925 connections in 15.40s; 3696.43 connections/user sec, bytes read 0
+56925 connections in 31 real seconds, 0 bytes read per connection
+56334 connections in 15.02s; 3750.60 connections/user sec, bytes read 0
+56334 connections in 31 real seconds, 0 bytes read per connection
+57376 connections in 15.50s; 3701.68 connections/user sec, bytes read 0
+57376 connections in 31 real seconds, 0 bytes read per connection
+57073 connections in 15.48s; 3686.89 connections/user sec, bytes read 0
+57073 connections in 31 real seconds, 0 bytes read per connection
+56743 connections in 15.64s; 3628.07 connections/user sec, bytes read 0
+56743 connections in 31 real seconds, 0 bytes read per connection
+56733 connections in 15.55s; 3648.42 connections/user sec, bytes read 0
+56733 connections in 31 real seconds, 0 bytes read per connection
+pqc
+53935 connections in 15.14s; 3562.42 connections/user sec, bytes read 0
+53935 connections in 31 real seconds, 0 bytes read per connection
+53584 connections in 15.48s; 3461.50 connections/user sec, bytes read 0
+53584 connections in 31 real seconds, 0 bytes read per connection
+52009 connections in 15.25s; 3410.43 connections/user sec, bytes read 0
+52009 connections in 31 real seconds, 0 bytes read per connection
+50032 connections in 15.25s; 3280.79 connections/user sec, bytes read 0
+50032 connections in 31 real seconds, 0 bytes read per connection
+50732 connections in 15.48s; 3277.26 connections/user sec, bytes read 0
+50732 connections in 31 real seconds, 0 bytes read per connection
+50497 connections in 15.33s; 3294.00 connections/user sec, bytes read 0
+50497 connections in 31 real seconds, 0 bytes read per connection
+49148 connections in 15.29s; 3214.39 connections/user sec, bytes read 0
+49148 connections in 31 real seconds, 0 bytes read per connection
+50912 connections in 15.38s; 3310.27 connections/user sec, bytes read 0
+50912 connections in 31 real seconds, 0 bytes read per connection
+50175 connections in 15.23s; 3294.48 connections/user sec, bytes read 0
+50175 connections in 31 real seconds, 0 bytes read per connection
